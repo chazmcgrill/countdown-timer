@@ -1,0 +1,51 @@
+body {
+  background: #005f6b;
+  display: flex;
+  justify-content: center; }
+
+.circle {
+  position: relative;
+  display: flex;
+  margin-top: 80px; }
+  .circle span {
+    font-family: monospace;
+    font-size: 72px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: #00dffc; }
+  .circle .semi-c {
+    box-sizing: border-box;
+    height: 200px;
+    width: 100px; }
+  .circle .left {
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px; }
+  .circle .right {
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px; }
+  .circle .left-circle, .circle .right-circle {
+    border: 8px solid #00dffc; }
+  .circle .mask-left, .circle .mask-right, .circle .block {
+    border: 8px solid #008c9e;
+    position: absolute; }
+  .circle .left-circle, .circle .block, .circle .mask-right {
+    border-right: 0; }
+  .circle .right-circle, .circle .mask-left {
+    border-left: 0; }
+  .circle .block, .circle .mask-left, .circle .left-circle {
+    z-index: 1; }
+  .circle .block, .circle .mask-left {
+    left: 100px; }
+  .circle .mask-left {
+    transform-origin: left center;
+    transform: rotate(0deg); }
+  .circle .mask-right {
+    transform-origin: right center;
+    transform: rotate(0deg); }
+  .circle .block {
+    display: none; }
+  .circle .handle {
+    display: none; }
