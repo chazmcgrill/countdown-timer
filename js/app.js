@@ -1,5 +1,7 @@
-var count = 60,
-		deg = 0;
+var deg = 0,
+    count = 60,
+    mid = count / 2,
+    angle = 180 / mid;
 
 // Function to update time display each second
 function display(val) {
@@ -8,22 +10,22 @@ function display(val) {
 }
 
 // Timer function to countdown seconds and update angles of masks
-// blocker added after 30 seconds
+// righthand mask pulled to front at mid point to cover left mask.
 function timer(count) {
 	var interval = setInterval(function(){
 		count--;
-		deg += 6;
+		deg += angle;
 		display(count);
-		if(count >= 30) {
+		if(count >= mid) {
 			$('.mask-right').css('transform', 'rotate(' + deg + 'deg)');
 		} else {
 			$('.mask-left').css('transform', 'rotate(' + deg + 'deg)');
 		}
 
-		if(count === 30) {
+		if(count === mid) {
 			deg = 0;
-			$('.block').removeClass('handle');
-			$('.mask-left').removeClass('handle');
+      $('.mask-right').css('z-index', '2');
+      $('.mask-left').removeClass('handle');
 		} else if(count === 0) {
 			clearInterval(interval);
 			$('.display').css('color', '#008c9e');
